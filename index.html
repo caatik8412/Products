@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA AB Suite — 4 Professional Tools for Modern Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f1117;
+  --ink-2: #3a3d4a;
+  --ink-3: #7a7e8e;
+  --surface: #ffffff;
+  --surface-2: #f4f3f0;
+  --surface-3: #eeecea;
+  --border: #e0ddd8;
+  --p1: #1a3a5c;
+  --p1-light: #e8f0f8;
+  --p2: #0f6e56;
+  --p2-light: #e1f5ee;
+  --p3: #854f0b;
+  --p3-light: #faeeda;
+  --p4: #533ab7;
+  --p4-light: #eeedfe;
+  --accent: #d85a30;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-2);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-brand { font-family: var(--font-serif); font-size: 1.25rem; color: var(--p1); }
+.nav-brand span { color: var(--accent); font-style: italic; }
+.nav-links { display: flex; gap: 0.25rem; }
+.nav-link {
+  font-size: 0.8rem; font-weight: 500; color: var(--ink-3);
+  padding: 0.35rem 0.8rem; border-radius: 6px;
+  text-decoration: none; transition: all 0.15s;
+  cursor: pointer; border: none; background: none;
+}
+.nav-link:hover, .nav-link.active { background: var(--surface-3); color: var(--ink); }
+.nav-cta {
+  font-size: 0.8rem; font-weight: 600;
+  background: var(--p1); color: white;
+  padding: 0.4rem 1rem; border-radius: 6px;
+  border: none; cursor: pointer; transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ─── HERO ─── */
+.hero {
+  max-width: 1100px; margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: var(--font-serif); font-size: 3.2rem; line-height: 1.1;
+  color: var(--ink); margin-bottom: 1.25rem;
+}
+.hero h1 em { color: var(--p1); font-style: italic; }
+.hero-desc {
+  font-size: 1.05rem; color: var(--ink-2); line-height: 1.7;
+  max-width: 440px; margin-bottom: 2rem;
+}
+.hero-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-primary {
+  background: var(--p1); color: white;
+  padding: 0.75rem 1.75rem; border-radius: var(--radius);
+  font-size: 0.9rem; font-weight: 600; border: none; cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-primary:hover { background: #122e4a; }
+.btn-ghost {
+  color: var(--ink-2); font-size: 0.9rem; font-weight: 500;
+  padding: 0.75rem 0; border: none; background: none; cursor: pointer;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.btn-ghost:hover { color: var(--ink); }
+
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border); border-radius: var(--radius-lg);
+  overflow: hidden; border: 1px solid var(--border);
+}
+.stat-cell {
+  background: var(--surface); padding: 1.75rem 1.5rem;
+}
+.stat-num {
+  font-family: var(--font-serif); font-size: 2.4rem; color: var(--ink);
+  line-height: 1; margin-bottom: 0.3rem;
+}
+.stat-num span { font-size: 1.4rem; color: var(--p1); }
+.stat-label { font-size: 0.8rem; color: var(--ink-3); font-weight: 500; }
+
+/* ─── PRODUCT GRID ─── */
+.products-section {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem 2rem;
+}
+.section-header { margin-bottom: 2rem; }
+.section-title {
+  font-family: var(--font-serif); font-size: 1.9rem; color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.section-sub { font-size: 0.9rem; color: var(--ink-3); }
+.product-tabs {
+  display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.ptab {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 1.1rem; border-radius: var(--radius);
+  font-size: 0.82rem; font-weight: 500; cursor: pointer;
+  border: 1.5px solid var(--border); background: var(--surface);
+  color: var(--ink-2); transition: all 0.15s;
+}
+.ptab:hover { border-color: var(--ink-3); color: var(--ink); }
+.ptab.active { border-color: currentColor; }
+.ptab[data-p="1"].active { color: var(--p1); background: var(--p1-light); border-color: var(--p1); }
+.ptab[data-p="2"].active { color: var(--p2); background: var(--p2-light); border-color: var(--p2); }
+.ptab[data-p="3"].active { color: var(--p3); background: var(--p3-light); border-color: var(--p3); }
+.ptab[data-p="4"].active { color: var(--p4); background: var(--p4-light); border-color: var(--p4); }
+.ptab-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ptab[data-p="1"] .ptab-dot { background: var(--p1); }
+.ptab[data-p="2"] .ptab-dot { background: var(--p2); }
+.ptab[data-p="3"] .ptab-dot { background: var(--p3); }
+.ptab[data-p="4"] .ptab-dot { background: var(--p4); }
+
+/* ─── DEMO PANEL ─── */
+.demo-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.demo-topbar {
+  padding: 1rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.demo-topbar-left { display: flex; align-items: center; gap: 0.75rem; }
+.demo-tag {
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  padding: 0.2rem 0.6rem; border-radius: 4px;
+}
+.demo-title { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.demo-subtitle { font-size: 0.78rem; color: var(--ink-3); }
+.demo-badge {
+  font-size: 0.7rem; font-weight: 600;
+  padding: 0.25rem 0.7rem; border-radius: 20px;
+  background: #e8f5e9; color: #1b5e20;
+}
+
+/* ─── PRODUCT 1 — SITE MANAGEMENT ENGINE ─── */
+#demo-1 { display: block; }
+#demo-2, #demo-3, #demo-4 { display: none; }
+
+.p1-color { color: var(--p1); }
+.p1-bg { background: var(--p1); }
+.p1-border { border-color: var(--p1); }
+
+.demo-grid-2 {
+  display: grid; grid-template-columns: 260px 1fr;
+  min-height: 520px;
+}
+.demo-sidebar {
+  border-right: 1px solid var(--border);
+  padding: 1rem 0;
+}
+.demo-sidebar-head {
+  padding: 0 1rem 0.75rem;
+  font-size: 0.7rem; font-weight: 600; color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border); margin-bottom: 0.5rem;
+}
+.site-item {
+  padding: 0.6rem 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.1s;
+}
+.site-item:hover { background: var(--surface-2); }
+.site-item.active { background: var(--p1-light); }
+.site-item-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+.site-item-sub { font-size: 0.72rem; color: var(--ink-3); margin-top: 1px; }
+.site-item-pct {
+  font-size: 0.75rem; font-weight: 600; font-family: var(--font-mono);
+  padding: 2px 7px; border-radius: 4px;
+}
+.pct-high { background: var(--p2-light); color: var(--p2); }
+.pct-mid { background: var(--p3-light); color: var(--p3); }
+.pct-low { background: #fce4ec; color: #b71c1c; }
+
+.demo-main { padding: 1.5rem; overflow: auto; }
+.demo-kpi-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-card {
+  background: var(--surface-2); border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+.kpi-label { font-size: 0.7rem; color: var(--ink-3); font-weight: 500; margin-bottom: 0.3rem; }
+.kpi-val { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+.kpi-sub { font-size: 0.7rem; color: var(--ink-3); margin-top: 2px; }
+.kpi-delta { font-size: 0.7rem; font-weight: 600; }
+.delta-up { color: var(--p2); }
+.delta-dn { color: #d32f2f; }
+
+.inv-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.inv-table th {
+  text-align: left; padding: 0.5rem 0.75rem;
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--ink-3);
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+}
+.inv-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+.inv-table tr:hover td { background: var(--surface-2); }
+.inv-table tr:last-child td { border-bottom: none; }
+.item-code { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-3); }
+.stock-bar-wrap { width: 80px; background: var(--surface-3); border-radius: 4px; height: 6px; overflow: hidden; }
+.stock-bar { height: 100%; border-radius: 4px; }
+
+/* ─── PRODUCT 2 — POS / BILLING ─── */
+.p2-color { color: var(--p2); }
+.p2-bg { background: var(--p2); }
+
+.pos-layout { display: grid; grid-template-columns: 1fr 300px; min-height: 520px; }
+.pos-products { padding: 1.25rem; border-right: 1px solid var(--border); }
+.pos-search {
+  width: 100%; padding: 0.55rem 1rem;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-family: var(--font-sans); font-size: 0.85rem; color: var(--ink);
+  background: var(--surface-2); margin-bottom: 1rem; outline: none;
+}
+.pos-search:focus { border-color: var(--p2); background: var(--surface); }
+.pos-category-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.pos-cat {
+  font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem;
+  border-radius: 20px; cursor: pointer; border: 1.5px solid var(--border);
+  background: var(--surface); color: var(--ink-3); transition: all 0.15s;
+}
+.pos-cat.active { background: var(--p2-light); color: var(--p2); border-color: var(--p2); }
+.pos-items-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+}
+.pos-item-card {
+  background: var(--surface-2); border-radius: var(--radius);
+  padding: 0.9rem; cursor: pointer; border: 1.5px solid transparent;
+  transition: all 0.15s; text-align: center;
+}
+.pos-item-card:hover { border-color: var(--p2); background: var(--p2-light); }
+.pos-item-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+.pos-item-name { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+.pos-item-price { font-family: var(--font-mono); font-size: 0.8rem; color: var(--p2); font-weight: 500; margin-top: 2px; }
+.pos-item-stock { font-size: 0.68rem; color: var(--ink-3); }
+
+.pos-cart { padding: 1.25rem; display: flex; flex-direction: column; }
+.cart-head { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
+.cart-clear { font-size: 0.72rem; color: var(--ink-3); cursor: pointer; font-weight: 400; border: none; background: none; }
+.cart-clear:hover { color: var(--accent); }
+.cart-items { flex: 1; overflow-y: auto; }
+.cart-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+}
+.cart-item-name { font-size: 0.8rem; font-weight: 500; flex: 1; color: var(--ink); }
+.cart-qty-ctrl { display: flex; align-items: center; gap: 0.4rem; }
+.qty-btn {
+  width: 22px; height: 22px; border-radius: 4px;
+  border: 1px solid var(--border); background: var(--surface);
+  font-size: 0.9rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; color: var(--ink-2); transition: all 0.1s;
+}
+.qty-btn:hover { background: var(--p2-light); border-color: var(--p2); color: var(--p2); }
+.qty-num { font-family: var(--font-mono); font-size: 0.78rem; min-width: 18px; text-align: center; }
+.cart-price { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--ink); min-width: 55px; text-align: right; }
+
+.cart-total-section { margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+.cart-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--ink-2); margin-bottom: 0.35rem; }
+.cart-row.total { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-top: 0.5rem; }
+.cart-row span:last-child { font-family: var(--font-mono); }
+.pay-btn {
+  margin-top: 1rem; width: 100%;
+  padding: 0.75rem; border-radius: var(--radius);
+  font-size: 0.9rem; font-weight: 700;
+  background: var(--p2); color: white; border: none; cursor: pointer;
+  transition: all 0.15s; font-family: var(--font-sans);
+}
+.pay-btn:hover { background: #0a5a43; }
+.pay-methods { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+.pay-method {
+  flex: 1; padding: 0.45rem; border-radius: 6px;
+  font-size: 0.72rem; font-weight: 600; border: 1.5px solid var(--border);
+  background: var(--surface); cursor: pointer; text-align: center; color: var(--ink-2);
+  transition: all 0.15s;
+}
+.pay-method.active { border-color: var(--p2); background: var(--p2-light); color: var(--p2); }
+
+/* ─── PRODUCT 3 — COMPLIANCE OS ─── */
+.p3-color { color: var(--p3); }
+.comp-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 520px; }
+.comp-nav { border-right: 1px solid var(--border); padding: 1rem 0; }
+.comp-nav-section { padding: 0 1rem; margin-bottom: 1rem; }
+.comp-nav-head { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-3); margin-bottom: 0.5rem; }
+.comp-nav-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.5rem 0.6rem; border-radius: 7px;
+  cursor: pointer; margin-bottom: 2px; font-size: 0.8rem; font-weight: 500;
+  color: var(--ink-2); transition: all 0.1s;
+}
+.comp-nav-item:hover { background: var(--surface-2); color: var(--ink); }
+.comp-nav-item.active { background: var(--p3-light); color: var(--p3); }
+.comp-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.comp-badge {
+  margin-left: auto; font-size: 0.68rem; font-weight: 700;
+  padding: 1px 6px; border-radius: 10px;
+}
+.badge-due { background: #fff3e0; color: #e65100; }
+.badge-ok { background: var(--p2-light); color: var(--p2); }
+.badge-over { background: #fce4ec; color: #c62828; }
+
+.comp-main { padding: 1.5rem; overflow: auto; }
+.comp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.comp-month-nav { display: flex; align-items: center; gap: 0.75rem; }
+.month-btn {
+  width: 28px; height: 28px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--surface);
+  cursor: pointer; font-size: 1rem; color: var(--ink-2);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.1s;
+}
+.month-btn:hover { background: var(--p3-light); color: var(--p3); border-color: var(--p3); }
+.month-label { font-size: 0.9rem; font-weight: 600; color: var(--ink); min-width: 100px; text-align: center; }
+
+.comp-tasks { display: flex; flex-direction: column; gap: 0.6rem; }
+.comp-task {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 120px;
+  align-items: center; gap: 1rem;
+  padding: 0.85rem 1rem; border-radius: var(--radius);
+  background: var(--surface-2); border: 1px solid var(--border);
+  transition: box-shadow 0.1s;
+}
+.comp-task:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.task-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+.task-client { font-size: 0.72rem; color: var(--ink-3); margin-top: 2px; }
+.task-due { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-2); }
+.task-days { font-size: 0.75rem; font-weight: 600; }
+.days-ok { color: var(--p2); }
+.days-soon { color: var(--p3); }
+.days-over { color: #c62828; }
+
+.task-status-btn {
+  padding: 0.3rem 0.7rem; border-radius: 6px;
+  font-size: 0.72rem; font-weight: 700; border: none;
+  cursor: pointer; transition: all 0.15s; font-family: var(--font-sans);
+}
+.status-filed { background: var(--p2-light); color: var(--p2); }
+.status-pending { background: #fff3e0; color: #e65100; cursor: pointer; }
+.status-pending:hover { background: #ffe0b2; }
+.status-overdue { background: #fce4ec; color: #c62828; }
+
+/* ─── PRODUCT 4 — OFFICE WORKSPACE ─── */
+.p4-color { color: var(--p4); }
+.office-layout { min-height: 520px; }
+.office-toolbar {
+  padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.office-tabs { display: flex; gap: 0.25rem; }
+.office-tab {
+  padding: 0.35rem 0.85rem; border-radius: 6px;
+  font-size: 0.78rem; font-weight: 500; cursor: pointer;
+  border: none; background: none; color: var(--ink-3);
+  transition: all 0.1s;
+}
+.office-tab:hover { background: var(--surface-2); color: var(--ink); }
+.office-tab.active { background: var(--p4-light); color: var(--p4); }
+.new-task-btn {
+  padding: 0.4rem 1rem; border-radius: 7px;
+  font-size: 0.78rem; font-weight: 600;
+  background: var(--p4); color: white; border: none; cursor: pointer;
+  transition: opacity 0.15s;
+}
+.new-task-btn:hover { opacity: 0.85; }
+
+.office-board { padding: 1.25rem 1.5rem; }
+.kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.kanban-col { }
+.kanban-col-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.kanban-col-title { font-size: 0.78rem; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.05em; }
+.kanban-count {
+  font-size: 0.68rem; font-weight: 700;
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-3); color: var(--ink-3);
+}
+.kanban-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 0.75rem;
+  margin-bottom: 0.6rem; cursor: pointer; transition: all 0.15s;
+}
+.kanban-card:hover { border-color: var(--p4); box-shadow: 0 2px 8px rgba(83,58,183,0.08); }
+.card-tag {
+  font-size: 0.65rem; font-weight: 700; padding: 2px 7px;
+  border-radius: 4px; display: inline-block; margin-bottom: 0.4rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.tag-audit { background: var(--p1-light); color: var(--p1); }
+.tag-gst { background: var(--p3-light); color: var(--p3); }
+.tag-it { background: #e8eaf6; color: #3949ab; }
+.tag-roc { background: #fce4ec; color: #c62828; }
+.tag-misc { background: var(--surface-3); color: var(--ink-3); }
+.tag-strategy { background: var(--p4-light); color: var(--p4); }
+.tag-research { background: #e8eaf6; color: #3949ab; }
+.tag-proposal { background: #e8f5e9; color: #2e7d32; }
+.tag-delivery { background: var(--p1-light); color: var(--p1); }
+.tag-review { background: var(--p3-light); color: var(--p3); }
+.card-title { font-size: 0.8rem; font-weight: 500; color: var(--ink); line-height: 1.35; }
+.card-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 0.6rem; }
+.card-assignee {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 700;
+}
+.av-a { background: var(--p4-light); color: var(--p4); }
+.av-r { background: var(--p2-light); color: var(--p2); }
+.av-s { background: var(--p3-light); color: var(--p3); }
+.card-date { font-size: 0.68rem; color: var(--ink-3); font-family: var(--font-mono); }
+.card-urgent { border-left: 3px solid #d32f2f; }
+
+/* ─── STAFF PANEL ─── */
+.office-staff { padding: 1.25rem 1.5rem; display: none; }
+.staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.staff-card {
+  background: var(--surface-2); border-radius: var(--radius);
+  padding: 1.25rem; border: 1px solid var(--border);
+}
+.staff-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;
+}
+.staff-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.staff-role { font-size: 0.72rem; color: var(--ink-3); margin-bottom: 0.75rem; }
+.staff-load-bar { background: var(--border); border-radius: 4px; height: 5px; margin-bottom: 0.3rem; overflow: hidden; }
+.staff-load-fill { height: 100%; border-radius: 4px; }
+.staff-load-label { font-size: 0.7rem; color: var(--ink-3); display: flex; justify-content: space-between; }
+.staff-tasks { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.staff-task-item { font-size: 0.72rem; color: var(--ink-2); padding: 0.3rem 0.5rem; background: var(--surface); border-radius: 5px; border: 1px solid var(--border); }
+
+/* ─── FOOTER SECTION ─── */
+.footer-cta {
+  max-width: 1100px; margin: 3rem auto; padding: 3rem 2rem;
+  background: var(--p1); border-radius: var(--radius-lg);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+}
+.footer-cta-text h2 {
+  font-family: var(--font-serif); font-size: 2rem; color: white;
+  line-height: 1.2; margin-bottom: 0.75rem;
+}
+.footer-cta-text p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.footer-cta-form { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-input {
+  padding: 0.7rem 1rem; border-radius: var(--radius);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1); color: white;
+  font-family: var(--font-sans); font-size: 0.9rem; outline: none;
+}
+.footer-input::placeholder { color: rgba(255,255,255,0.5); }
+.footer-input:focus { border-color: rgba(255,255,255,0.6); }
+.footer-submit {
+  padding: 0.75rem; border-radius: var(--radius);
+  background: white; color: var(--p1); font-family: var(--font-sans);
+  font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer;
+  transition: opacity 0.15s;
+}
+.footer-submit:hover { opacity: 0.9; }
+
+footer {
+  border-top: 1px solid var(--border); padding: 1.5rem 2rem;
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand { font-family: var(--font-serif); font-size: 1rem; color: var(--ink-2); }
+.footer-copy { font-size: 0.75rem; color: var(--ink-3); }
+
+/* ─── TOAST ─── */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+  background: var(--ink); color: white;
+  padding: 0.75rem 1.25rem; border-radius: var(--radius);
+  font-size: 0.85rem; font-weight: 500;
+  transform: translateY(100px); opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ─── PRODUCT DESCRIPTION STRIP ─── */
+.prod-desc-strip {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem 1.75rem;
+  margin-bottom: 1rem;
+}
+.prod-desc-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: 2px; }
+.prod-desc-title {
+  font-size: 0.88rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.6rem; line-height: 1.3;
+}
+.prod-desc-text {
+  font-size: 0.82rem; color: var(--ink-2); line-height: 1.75;
+  margin-bottom: 0.9rem; max-width: 760px;
+}
+.prod-desc-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.dpill {
+  font-size: 0.7rem; font-weight: 600;
+  padding: 0.25rem 0.75rem; border-radius: 20px;
+  background: var(--surface-3); color: var(--ink-2);
+  border: 1px solid var(--border);
+}
+
+/* ─── INDUSTRY SELECTOR CARDS ─── */
+.ind-card {
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.25rem 1rem 1rem;
+  cursor: pointer; text-align: center; transition: all 0.18s;
+}
+.ind-card:hover { border-color: var(--ink-3); transform: translateY(-2px); }
+.ind-card.active { border-color: var(--accent); background: #fff8f6; box-shadow: 0 4px 16px rgba(216,90,48,0.12); }
+.ind-card[data-demo="1"].active { border-color: var(--p1); background: var(--p1-light); box-shadow: 0 4px 16px rgba(26,58,92,0.10); }
+.ind-card[data-demo="2"].active { border-color: var(--p2); background: var(--p2-light); box-shadow: 0 4px 16px rgba(15,110,86,0.10); }
+.ind-card[data-demo="4"].active { border-color: var(--p4); background: var(--p4-light); box-shadow: 0 4px 16px rgba(83,58,183,0.10); }
+.ind-card[data-demo="3"].active { border-color: var(--p3); background: var(--p3-light); box-shadow: 0 4px 16px rgba(133,79,11,0.10); }
+.ind-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.ind-name { font-size: 0.82rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 0.4rem; }
+.ind-tag { font-size: 0.68rem; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; }
+
+@media (max-width: 768px) {
+  #industry-cards { grid-template-columns: 1fr 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">AB <span>Business Suite</span></div>
+  <div class="nav-links">
+    <button class="nav-link" onclick="scrollToSec('#products')">Products</button>
+    <button class="nav-link" onclick="openModal()">Contact</button>
+  </div>
+  <button class="nav-cta" onclick="scrollToSec('#cta')">Request Demo →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">AB Business Suite — Built for Indian Business</div>
+    <h1>Run your business.<br><em>Not spreadsheets.</em></h1>
+    <p class="hero-desc">Four purpose-built tools for contractors, retailers, consultancies, and CA firms. Real-time dashboards, inventory control, project tracking — everything your business actually needs.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="scrollToSec('#products')">See Live Demos</button>
+      <button class="btn-ghost" onclick="scrollToSec('#cta')">Get a free walkthrough →</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-cell">
+      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-label">Industry-specific tools</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">24<span>/7</span></div>
+      <div class="stat-label">Always-on access</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">0<span>hr</span></div>
+      <div class="stat-label">Manual data entry</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">GST & IT compliant</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <h2 class="section-title">Tools Built for Your Industry</h2>
+    <p class="section-sub">Not generic software. Each product is designed specifically for one type of business — click to see a live demo.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-bottom:1.5rem" id="industry-cards">
+    <div class="ind-card active" data-demo="1" onclick="pickIndustry(this,1)">
+      <div class="ind-icon">🏗️</div>
+      <div class="ind-name">Infrastructure<br>Contractor</div>
+      <div class="ind-tag">Site & Inventory</div>
+    </div>
+    <div class="ind-card" data-demo="2" onclick="pickIndustry(this,2)">
+      <div class="ind-icon">🛒</div>
+      <div class="ind-name">Retail &amp;<br>Trading</div>
+      <div class="ind-tag">POS & Billing</div>
+    </div>
+    <div class="ind-card" data-demo="4" onclick="pickIndustry(this,4)">
+      <div class="ind-icon">💼</div>
+      <div class="ind-name">Consultancy<br>Firm</div>
+      <div class="ind-tag">Project Workspace</div>
+    </div>
+    <div class="ind-card" data-demo="3" onclick="pickIndustry(this,3)">
+      <div class="ind-icon">📋</div>
+      <div class="ind-name">CA &amp; Tax<br>Practice</div>
+      <div class="ind-tag">Compliance OS</div>
+    </div>
+  </div>
+
+  <div class="product-tabs" style="display:none">
+    <button class="ptab active" data-p="1" onclick="switchDemo(1)">
+      <span class="ptab-dot"></span> Site Management Engine
+    </button>
+    <button class="ptab" data-p="2" onclick="switchDemo(2)">
+      <span class="ptab-dot"></span> Micro POS & Billing
+    </button>
+    <button class="ptab" data-p="3" onclick="switchDemo(3)">
+      <span class="ptab-dot"></span> Tax Compliance OS
+    </button>
+    <button class="ptab" data-p="4" onclick="switchDemo(4)">
+      <span class="ptab-dot"></span> Consultancy Workspace
+    </button>
+  </div>
+
+  <!-- PRODUCT DESCRIPTION STRIP -->
+  <div class="prod-desc-strip" id="desc-1">
+    <div class="prod-desc-icon">🏗️</div>
+    <div class="prod-desc-body">
+      <div class="prod-desc-title">Site & Inventory Ledger — For Infrastructure Contractors</div>
+      <div class="prod-desc-text">Contractors handling government or private infrastructure projects deal with material worth crores across multiple sites simultaneously. This system gives you a single live ledger — every item issued, consumed, and remaining at each site, matched against the project scope. Your project managers know exactly what's on ground, your accounts team knows what's been billed, and nothing falls through the cracks between the two.</div>
+      <div class="prod-desc-pills">
+        <span class="dpill">Multi-site tracking</span>
+        <span class="dpill">Material consumption vs scope</span>
+        <span class="dpill">Real-time stock visibility</span>
+        <span class="dpill">Budget utilisation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-desc-strip" id="desc-2" style="display:none">
+    <div class="prod-desc-icon">🛒</div>
+    <div class="prod-desc-body">
+      <div class="prod-desc-title">Micro POS & Billing Tracker — For Retail & Trading Businesses</div>
+      <div class="prod-desc-text">Built for shops and trading businesses that move high volumes of items daily and need their billing, stock, and cash flow tracked without complexity. Every sale updates your stock automatically, every payment method is recorded, and your day-end summary is ready without manual counting. GST is calculated and applied at the point of sale — no separate entry, no mistakes, no delays.</div>
+      <div class="prod-desc-pills">
+        <span class="dpill">Instant GST billing</span>
+        <span class="dpill">Live stock deduction</span>
+        <span class="dpill">Cash / UPI / Card split</span>
+        <span class="dpill">Daily sales summary</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-desc-strip" id="desc-4" style="display:none">
+    <div class="prod-desc-icon">💼</div>
+    <div class="prod-desc-body">
+      <div class="prod-desc-title">Office Management Workspace — For Consultancy Firms</div>
+      <div class="prod-desc-text">Consultancy firms run on client engagements, not tasks — and managing ten simultaneous projects across a team is where things go wrong quietly. This workspace gives you a live view of every engagement: what stage it's at, who owns it, what's overdue, and how loaded each team member actually is. Your principals focus on delivery while the system handles visibility — no chasing, no status meetings, no surprises at invoicing time.</div>
+      <div class="prod-desc-pills">
+        <span class="dpill">Engagement pipeline board</span>
+        <span class="dpill">Consultant utilisation tracking</span>
+        <span class="dpill">Deadline & escalation flags</span>
+        <span class="dpill">Client delivery status</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-desc-strip" id="desc-3" style="display:none">
+    <div class="prod-desc-icon">📋</div>
+    <div class="prod-desc-body">
+      <div class="prod-desc-title">Tax Compliance OS — For CA & Tax Practices</div>
+      <div class="prod-desc-text">Managing compliance for multiple clients means holding dozens of overlapping deadlines in your head simultaneously — GSTR-1, GSTR-3B, TDS returns, advance tax, ITR filings, all on different cycles for different clients. This system replaces that mental load with a structured, month-by-month compliance calendar for your entire client base. One glance tells you what's filed, what's pending, and what's at risk — so nothing slips and no penalty lands on a client's desk.</div>
+      <div class="prod-desc-pills">
+        <span class="dpill">GST & Income Tax calendar</span>
+        <span class="dpill">Multi-client deadline view</span>
+        <span class="dpill">Filing status tracking</span>
+        <span class="dpill">Overdue alerts</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ DEMO 1 ═══════════════ -->
+  <div class="demo-wrap" id="demo-1">
+    <div class="demo-topbar">
+      <div class="demo-topbar-left">
+        <span class="demo-tag" style="background:var(--p1-light);color:var(--p1);">Product 1</span>
+        <div>
+          <div class="demo-title">CA AB Site Management Engine</div>
+          <div class="demo-subtitle">Heavy infrastructure tracking — poles, cable, transformers</div>
+        </div>
+      </div>
+      <span class="demo-badge">3 Active Sites</span>
+    </div>
+    <div class="demo-grid-2">
+      <div class="demo-sidebar">
+        <div class="demo-sidebar-head">Project Sites</div>
+        <div class="site-item active" onclick="selectSite(this,'site-a')">
+          <div>
+            <div class="site-item-name">Site A — Feeder Line</div>
+            <div class="site-item-sub">District A, Rural Division</div>
+          </div>
+          <span class="site-item-pct pct-high">78%</span>
+        </div>
+        <div class="site-item" onclick="selectSite(this,'site-b')">
+          <div>
+            <div class="site-item-name">Site B — Urban Expansion</div>
+            <div class="site-item-sub">District B — Phase II</div>
+          </div>
+          <span class="site-item-pct pct-mid">45%</span>
+        </div>
+        <div class="site-item" onclick="selectSite(this,'site-c')">
+          <div>
+            <div class="site-item-name">Site C — LT Lines</div>
+            <div class="site-item-sub">District C, Rural Electrification</div>
+          </div>
+          <span class="site-item-pct pct-low">22%</span>
+        </div>
+      </div>
+      <div class="demo-main">
+        <div class="demo-kpi-row" id="site-kpi">
+          <div class="kpi-card">
+            <div class="kpi-label">Poles Erected</div>
+            <div class="kpi-val" id="kpi-poles">312</div>
+            <div class="kpi-sub"><span class="kpi-delta delta-up">▲ 12</span> this week</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Cable Laid (km)</div>
+            <div class="kpi-val" id="kpi-cable">47.2</div>
+            <div class="kpi-sub"><span class="kpi-delta delta-up">▲ 3.4</span> this week</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Transformers</div>
+            <div class="kpi-val" id="kpi-tfmr">18</div>
+            <div class="kpi-sub"><span class="kpi-delta delta-up">▲ 2</span> this week</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Budget Used</div>
+            <div class="kpi-val" id="kpi-budget">₹68L</div>
+            <div class="kpi-sub"><span class="kpi-delta delta-dn">▲ ₹4L</span> this week</div>
+          </div>
+        </div>
+        <table class="inv-table">
+          <thead>
+            <tr>
+              <th>Material Item</th>
+              <th>Item Code</th>
+              <th>Issued</th>
+              <th>Available</th>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody id="inv-tbody">
+            <tr>
+              <td><div style="font-size:0.82rem;font-weight:500">8m PCC Pole (B-type)</div><div class="item-code">POLE-8M-B</div></td>
+              <td class="item-code">INV-001</td>
+              <td>312</td>
+              <td>88</td>
+              <td><div class="stock-bar-wrap"><div class="stock-bar" style="width:78%;background:var(--p2)"></div></div></td>
+            </tr>
+            <tr>
+              <td><div style="font-size:0.82rem;font-weight:500">ACSR Conductor 100mm²</div><div class="item-code">CABLE-ACSR-100</div></td>
+              <td class="item-code">INV-002</td>
+              <td>47.2km</td>
+              <td>12.8km</td>
+              <td><div class="stock-bar-wrap"><div class="stock-bar" style="width:52%;background:var(--p3)"></div></div></td>
+            </tr>
+            <tr>
+              <td><div style="font-size:0.82rem;font-weight:500">25 KVA Transformer</div><div class="item-code">TFMR-25KVA</div></td>
+              <td class="item-code">INV-003</td>
+              <td>18</td>
+              <td>7</td>
+              <td><div class="stock-bar-wrap"><div class="stock-bar" style="width:72%;background:var(--p2)"></div></div></td>
+            </tr>
+            <tr>
+              <td><div style="font-size:0.82rem;font-weight:500">Stay Rod 16mm</div><div class="item-code">ROD-STAY-16</div></td>
+              <td class="item-code">INV-004</td>
+              <td>156</td>
+              <td>44</td>
+              <td><div class="stock-bar-wrap"><div class="stock-bar" style="width:22%;background:#e53935"></div></div></td>
+            </tr>
+            <tr>
+              <td><div style="font-size:0.82rem;font-weight:500">AB Cable 95mm² (LT)</div><div class="item-code">CABLE-AB-95</div></td>
+              <td class="item-code">INV-005</td>
+              <td>8.1km</td>
+              <td>11.9km</td>
+              <td><div class="stock-bar-wrap"><div class="stock-bar" style="width:59%;background:var(--p3)"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ DEMO 2 ═══════════════ -->
+  <div class="demo-wrap" id="demo-2">
+    <div class="demo-topbar">
+      <div class="demo-topbar-left">
+        <span class="demo-tag" style="background:var(--p2-light);color:var(--p2);">Product 2</span>
+        <div>
+          <div class="demo-title">CA AB Micro POS & Billing Tracker</div>
+          <div class="demo-subtitle">Retail trading — fast-moving items, stock & daily sales</div>
+        </div>
+      </div>
+      <span class="demo-badge" id="today-sales">Today: ₹0</span>
+    </div>
+    <div class="pos-layout">
+      <div class="pos-products">
+        <input class="pos-search" type="text" placeholder="Search items..." id="pos-search" oninput="filterPos()">
+        <div class="pos-category-row">
+          <button class="pos-cat active" onclick="setPosCat(this,'All')">All</button>
+          <button class="pos-cat" onclick="setPosCat(this,'Dairy')">Dairy</button>
+          <button class="pos-cat" onclick="setPosCat(this,'Grocery')">Grocery</button>
+          <button class="pos-cat" onclick="setPosCat(this,'Beverage')">Beverage</button>
+          <button class="pos-cat" onclick="setPosCat(this,'Snacks')">Snacks</button>
+        </div>
+        <div class="pos-items-grid" id="pos-grid"></div>
+      </div>
+      <div class="pos-cart">
+        <div class="cart-head">
+          <span>Current Bill</span>
+          <button class="cart-clear" onclick="clearCart()">Clear all</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total-section">
+          <div class="cart-row"><span>Subtotal</span><span id="subtotal">₹0.00</span></div>
+          <div class="cart-row"><span>GST (5%)</span><span id="gst-amt">₹0.00</span></div>
+          <div class="cart-row total"><span>Total</span><span id="total-amt">₹0.00</span></div>
+          <div class="pay-methods">
+            <button class="pay-method active" onclick="setPayMethod(this,'Cash')">Cash</button>
+            <button class="pay-method" onclick="setPayMethod(this,'UPI')">UPI</button>
+            <button class="pay-method" onclick="setPayMethod(this,'Card')">Card</button>
+          </div>
+          <button class="pay-btn" onclick="processBill()">Confirm & Print Bill</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ DEMO 3 ═══════════════ -->
+  <div class="demo-wrap" id="demo-3">
+    <div class="demo-topbar">
+      <div class="demo-topbar-left">
+        <span class="demo-tag" style="background:var(--p3-light);color:var(--p3);">Product 3</span>
+        <div>
+          <div class="demo-title">CA AB Tax Compliance OS</div>
+          <div class="demo-subtitle">GST & Income Tax deadline tracker — never miss a filing</div>
+        </div>
+      </div>
+      <span class="demo-badge" id="comp-summary">3 due this month</span>
+    </div>
+    <div class="comp-layout">
+      <div class="comp-nav">
+        <div class="comp-nav-section">
+          <div class="comp-nav-head">GST</div>
+          <div class="comp-nav-item active" onclick="setCompView(this,'gst-monthly')"><span class="comp-nav-dot"></span> Monthly Returns <span class="comp-badge badge-due">3</span></div>
+          <div class="comp-nav-item" onclick="setCompView(this,'gst-qrmp')"><span class="comp-nav-dot"></span> QRMP Scheme <span class="comp-badge badge-ok">✓</span></div>
+          <div class="comp-nav-item" onclick="setCompView(this,'gst-annual')"><span class="comp-nav-dot"></span> Annual GSTR-9 <span class="comp-badge badge-ok">✓</span></div>
+        </div>
+        <div class="comp-nav-section">
+          <div class="comp-nav-head">Income Tax</div>
+          <div class="comp-nav-item" onclick="setCompView(this,'it-advance')"><span class="comp-nav-dot"></span> Advance Tax <span class="comp-badge badge-due">2</span></div>
+          <div class="comp-nav-item" onclick="setCompView(this,'it-tds')"><span class="comp-nav-dot"></span> TDS Returns <span class="comp-badge badge-over">!</span></div>
+          <div class="comp-nav-item" onclick="setCompView(this,'it-itr')"><span class="comp-nav-dot"></span> ITR Filing <span class="comp-badge badge-ok">✓</span></div>
+        </div>
+      </div>
+      <div class="comp-main">
+        <div class="comp-header">
+          <div>
+            <div style="font-size:0.9rem;font-weight:700;color:var(--ink)" id="comp-view-title">GST Monthly Returns</div>
+            <div style="font-size:0.78rem;color:var(--ink-3)">GSTR-1, GSTR-3B filing status</div>
+          </div>
+          <div class="comp-month-nav">
+            <button class="month-btn" onclick="changeMonth(-1)">‹</button>
+            <span class="month-label" id="comp-month">May 2026</span>
+            <button class="month-btn" onclick="changeMonth(1)">›</button>
+          </div>
+        </div>
+        <div class="comp-tasks" id="comp-tasks-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ DEMO 4 ═══════════════ -->
+  <div class="demo-wrap" id="demo-4">
+    <div class="demo-topbar">
+      <div class="demo-topbar-left">
+        <span class="demo-tag" style="background:var(--p4-light);color:var(--p4);">Product 4</span>
+        <div>
+          <div class="demo-title">CA AB Consultancy Office Workspace</div>
+          <div class="demo-subtitle">Project pipeline, consultant allocation & client delivery tracker</div>
+        </div>
+      </div>
+      <span class="demo-badge">8 engagements active</span>
+    </div>
+    <div class="office-layout">
+      <div class="office-toolbar">
+        <div class="office-tabs">
+          <button class="office-tab active" onclick="setOfficeTab(this,'board')">Project Board</button>
+          <button class="office-tab" onclick="setOfficeTab(this,'staff')">Team Allocations</button>
+        </div>
+        <button class="new-task-btn" onclick="toast('New engagement panel opens in full app')">+ New Engagement</button>
+      </div>
+      <div class="office-board" id="office-board">
+        <div class="kanban-board">
+          <!-- TODO -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">Scoping</span>
+              <span class="kanban-count">3</span>
+            </div>
+            <div class="kanban-card" onclick="toast('Proposal stage — Ram leading')">
+              <span class="card-tag tag-strategy">Strategy</span>
+              <div class="card-title">Market Entry Strategy — Client A</div>
+              <div class="card-meta">
+                <span class="card-assignee av-a">A</span>
+                <span class="card-date">Jun 25</span>
+              </div>
+            </div>
+            <div class="kanban-card card-urgent" onclick="toast('Urgent — proposal deadline')">
+              <span class="card-tag tag-proposal">Proposal</span>
+              <div class="card-title">RFP Response — Client B Infrastructure</div>
+              <div class="card-meta">
+                <span class="card-assignee av-r">B</span>
+                <span class="card-date" style="color:#c62828">May 31 !</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="toast('Needs scoping call')">
+              <span class="card-tag tag-research">Research</span>
+              <div class="card-title">Competitor Benchmarking — Client C</div>
+              <div class="card-meta">
+                <span class="card-assignee av-s">C</span>
+                <span class="card-date">Jun 10</span>
+              </div>
+            </div>
+          </div>
+          <!-- IN PROGRESS -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">In Progress</span>
+              <span class="kanban-count">2</span>
+            </div>
+            <div class="kanban-card" onclick="toast('Process redesign — 60% done')">
+              <span class="card-tag tag-delivery">Delivery</span>
+              <div class="card-title">Operations Process Redesign — Arjun Corp</div>
+              <div class="card-meta">
+                <span class="card-assignee av-a">A</span>
+                <span class="card-date">Jun 18</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="toast('Financial feasibility study ongoing')">
+              <span class="card-tag tag-research">Research</span>
+              <div class="card-title">Financial Feasibility Study — Ram Holdings</div>
+              <div class="card-meta">
+                <span class="card-assignee av-r">B</span>
+                <span class="card-date">Jun 30</span>
+              </div>
+            </div>
+          </div>
+          <!-- REVIEW -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">Client Review</span>
+              <span class="kanban-count">2</span>
+            </div>
+            <div class="kanban-card" onclick="toast('Awaiting client sign-off')">
+              <span class="card-tag tag-strategy">Strategy</span>
+              <div class="card-title">5-Year Growth Roadmap — Shyam Group</div>
+              <div class="card-meta">
+                <span class="card-assignee av-a">A</span>
+                <span class="card-date">May 29</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="toast('SOPs submitted for feedback')">
+              <span class="card-tag tag-delivery">Delivery</span>
+              <div class="card-title">SOP Documentation — Karan Industries</div>
+              <div class="card-meta">
+                <span class="card-assignee av-s">C</span>
+                <span class="card-date">May 30</span>
+              </div>
+            </div>
+          </div>
+          <!-- DONE -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title" style="color:var(--p2)">Closed</span>
+              <span class="kanban-count" style="background:var(--p2-light);color:var(--p2)">1</span>
+            </div>
+            <div class="kanban-card" onclick="toast('Delivered & invoiced')" style="opacity:0.65">
+              <span class="card-tag tag-proposal">Proposal</span>
+              <div class="card-title">Digital Transformation Report — Client D</div>
+              <div class="card-meta">
+                <span class="card-assignee av-r">B</span>
+                <span class="card-date">May 10 ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="office-staff" id="office-staff">
+        <div class="staff-grid">
+          <div class="staff-card">
+            <div class="staff-avatar av-a" style="width:44px;height:44px">A</div>
+            <div class="staff-name">Ram</div>
+            <div class="staff-role">Principal Consultant — Strategy</div>
+            <div class="staff-load-bar"><div class="staff-load-fill" style="width:85%;background:var(--p3)"></div></div>
+            <div class="staff-load-label"><span>Utilisation</span><span>85%</span></div>
+            <div class="staff-tasks">
+              <div class="staff-task-item">Operations Redesign — Arjun Corp</div>
+              <div class="staff-task-item">5-Year Roadmap — Shyam Group</div>
+              <div class="staff-task-item">Market Entry Strategy — Client A</div>
+            </div>
+          </div>
+          <div class="staff-card">
+            <div class="staff-avatar av-r" style="width:44px;height:44px">B</div>
+            <div class="staff-name">Shyam</div>
+            <div class="staff-role">Senior Analyst — Research & Finance</div>
+            <div class="staff-load-bar"><div class="staff-load-fill" style="width:70%;background:var(--p2)"></div></div>
+            <div class="staff-load-label"><span>Utilisation</span><span>70%</span></div>
+            <div class="staff-tasks">
+              <div class="staff-task-item">Financial Feasibility — Ram Holdings</div>
+              <div class="staff-task-item">RFP Response — Client B</div>
+            </div>
+          </div>
+          <div class="staff-card">
+            <div class="staff-avatar av-s" style="width:44px;height:44px">C</div>
+            <div class="staff-name">Karan</div>
+            <div class="staff-role">Junior Consultant — Delivery & SOPs</div>
+            <div class="staff-load-bar"><div class="staff-load-fill" style="width:50%;background:var(--p4)"></div></div>
+            <div class="staff-load-label"><span>Utilisation</span><span>50%</span></div>
+            <div class="staff-tasks">
+              <div class="staff-task-item">SOP Documentation — Karan Industries</div>
+              <div class="staff-task-item">Competitor Benchmarking — Client C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="footer-cta" id="cta">
+  <div class="footer-cta-text">
+    <h2>Your business deserves better tools.</h2>
+    <p>Get a personalised walkthrough built around your industry. We'll show you exactly how it works for your business — no generic demos.</p>
+    <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem">
+      <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:rgba(255,255,255,0.8)">
+        <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0">✓</span>
+        Free demo — no commitment required
+      </div>
+      <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:rgba(255,255,255,0.8)">
+        <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0">✓</span>
+        We call you within 24 hours
+      </div>
+      <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:rgba(255,255,255,0.8)">
+        <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0">✓</span>
+        Custom setup for your client base
+      </div>
+    </div>
+  </div>
+  <div id="cta-form-wrap">
+    <div class="footer-cta-form" id="cta-form">
+      <div>
+        <input class="footer-input" type="text" id="f-name" placeholder="Your name / firm name" oninput="clearErr('f-name')">
+        <div class="f-err" id="err-name"></div>
+      </div>
+      <div>
+        <input class="footer-input" type="tel" id="f-phone" placeholder="Mobile number (10 digits)" maxlength="10" oninput="clearErr('f-phone')">
+        <div class="f-err" id="err-phone"></div>
+      </div>
+      <div>
+        <input class="footer-input" type="text" id="f-city" placeholder="City / District" oninput="clearErr('f-city')">
+        <div class="f-err" id="err-city"></div>
+      </div>
+      <div>
+        <select class="footer-input" id="f-product" style="cursor:pointer" oninput="clearErr('f-product')">
+          <option value="">Which product interests you?</option>
+          <option>Product 1 — Site & Inventory (Contractors)</option>
+          <option>Product 2 — POS & Billing (Retail / Trading)</option>
+          <option>Product 3 — Project Workspace (Consultancy)</option>
+          <option>Product 4 — Tax Compliance OS (CA Firms)</option>
+          <option>All 4 Products</option>
+        </select>
+        <div class="f-err" id="err-product"></div>
+      </div>
+      <button class="footer-submit" onclick="submitDemo()">Request a Free Demo →</button>
+    </div>
+    <div id="cta-success" style="display:none;text-align:center;padding:2rem 1rem">
+      <div style="font-size:2.5rem;margin-bottom:1rem">✅</div>
+      <div style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.5rem">Request Received!</div>
+      <div style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6">Thank you! Our team will call you within <strong style="color:white">24 hours</strong> to schedule your personalised demo.</div>
+      <button onclick="resetForm()" style="margin-top:1.5rem;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);color:white;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;cursor:pointer;font-family:var(--font-sans)">Submit another request</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contact-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;align-items:center;justify-content:center">
+  <div style="background:var(--surface);border-radius:var(--radius-lg);padding:2rem;width:90%;max-width:440px;position:relative">
+    <button onclick="closeModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink-3);line-height:1">×</button>
+    <div style="font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);margin-bottom:0.25rem">Contact Us</div>
+    <div style="font-size:0.82rem;color:var(--ink-3);margin-bottom:1.5rem">Send us a message and we'll get back to you shortly.</div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem" id="contact-form">
+      <div>
+        <label style="font-size:0.75rem;font-weight:600;color:var(--ink-2);display:block;margin-bottom:4px">Full Name *</label>
+        <input type="text" id="c-name" placeholder="Your name" style="width:100%;padding:0.55rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);font-family:var(--font-sans);font-size:0.85rem;color:var(--ink);background:var(--surface-2);outline:none" oninput="clearCErr('c-name')" onfocus="this.style.borderColor='var(--p4)'" onblur="this.style.borderColor='var(--border)'">
+        <div class="f-err" id="cerr-name"></div>
+      </div>
+      <div>
+        <label style="font-size:0.75rem;font-weight:600;color:var(--ink-2);display:block;margin-bottom:4px">Mobile / Email *</label>
+        <input type="text" id="c-contact" placeholder="Phone or email" style="width:100%;padding:0.55rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);font-family:var(--font-sans);font-size:0.85rem;color:var(--ink);background:var(--surface-2);outline:none" oninput="clearCErr('c-contact')" onfocus="this.style.borderColor='var(--p4)'" onblur="this.style.borderColor='var(--border)'">
+        <div class="f-err" id="cerr-contact"></div>
+      </div>
+      <div>
+        <label style="font-size:0.75rem;font-weight:600;color:var(--ink-2);display:block;margin-bottom:4px">Message *</label>
+        <textarea id="c-msg" placeholder="Tell us what you need..." rows="3" style="width:100%;padding:0.55rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);font-family:var(--font-sans);font-size:0.85rem;color:var(--ink);background:var(--surface-2);outline:none;resize:vertical" oninput="clearCErr('c-msg')" onfocus="this.style.borderColor='var(--p4)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        <div class="f-err" id="cerr-msg"></div>
+      </div>
+      <button onclick="submitContact()" style="background:var(--p4);color:white;border:none;padding:0.7rem;border-radius:var(--radius);font-size:0.9rem;font-weight:700;cursor:pointer;font-family:var(--font-sans);transition:opacity 0.15s" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Send Message →</button>
+    </div>
+    <div id="contact-success" style="display:none;text-align:center;padding:1.5rem 0">
+      <div style="font-size:2rem;margin-bottom:0.75rem">✅</div>
+      <div style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem">Message Sent!</div>
+      <div style="font-size:0.85rem;color:var(--ink-3)">We'll get back to you within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<footer style="max-width:1100px;margin:0 auto;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)">
+  <div style="font-family:var(--font-serif);font-size:1rem;color:var(--ink-2)">AB Business Suite</div>
+  <div style="display:flex;gap:1.5rem;align-items:center">
+    <button onclick="openModal()" style="font-size:0.8rem;color:var(--p1);font-weight:600;background:none;border:none;cursor:pointer;font-family:var(--font-sans)">Contact Us</button>
+    <button onclick="scrollTo('#cta')" style="font-size:0.8rem;color:var(--p1);font-weight:600;background:none;border:none;cursor:pointer;font-family:var(--font-sans)">Request Demo</button>
+    <div style="font-size:0.75rem;color:var(--ink-3)">Demo Version · All data is fictitious</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<style>
+.f-err { font-size:0.72rem; color:#c62828; margin-top:3px; min-height:16px; }
+.footer-input option { color: var(--ink); background: var(--surface); }
+</style>
+
+<script>
+// ── UTILITY ──
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+function scrollToSec(sel) {
+  document.querySelector(sel).scrollIntoView({behavior:'smooth'});
+}
+
+// ── MODAL ──
+function openModal() {
+  const m = document.getElementById('contact-modal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('contact-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', function(e) {
+  const modal = document.getElementById('contact-modal');
+  if (e.target === modal) closeModal();
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ⚙️  CONFIGURATION — fill these in
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const CONFIG = {
+  whatsapp: '917057164441',
+  // EmailJS — sign up free at emailjs.com, create a service + template, paste IDs below
+  emailjs_service_id:  'YOUR_SERVICE_ID',   // e.g. 'service_abc123'
+  emailjs_template_id: 'YOUR_TEMPLATE_ID',  // e.g. 'template_xyz456'
+  emailjs_public_key:  'YOUR_PUBLIC_KEY',   // e.g. 'abcDEFghiJKL'
+  // Google Sheet — deploy a Google Apps Script as Web App, paste the URL below
+  sheet_url: 'YOUR_GOOGLE_SCRIPT_URL',      // e.g. 'https://script.google.com/macros/s/.../exec'
+};
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// Load EmailJS SDK
+(function(){
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = () => { if(CONFIG.emailjs_public_key !== 'YOUR_PUBLIC_KEY') emailjs.init(CONFIG.emailjs_public_key); };
+  document.head.appendChild(s);
+})();
+
+function sendToWhatsApp(data) {
+  const msg = `*New Demo Request — AB Business Suite*\n\n👤 Name: ${data.name}\n📱 Mobile: ${data.phone}\n📍 City: ${data.city}\n🎯 Product: ${data.product}\n⏰ Time: ${new Date().toLocaleString('en-IN')}`;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function sendToEmail(data) {
+  if (CONFIG.emailjs_service_id === 'YOUR_SERVICE_ID') return Promise.resolve();
+  return emailjs.send(CONFIG.emailjs_service_id, CONFIG.emailjs_template_id, {
+    from_name: data.name,
+    phone: data.phone,
+    city: data.city,
+    product: data.product,
+    time: new Date().toLocaleString('en-IN'),
+    to_email: CONFIG.emailjs_public_key,
+  });
+}
+
+function sendToSheet(data) {
+  if (CONFIG.sheet_url === 'YOUR_GOOGLE_SCRIPT_URL') return Promise.resolve();
+  return fetch(CONFIG.sheet_url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...data, timestamp: new Date().toLocaleString('en-IN'), source: 'Demo Request Form' })
+  });
+}
+
+function sendContactToSheet(data) {
+  if (CONFIG.sheet_url === 'YOUR_GOOGLE_SCRIPT_URL') return Promise.resolve();
+  return fetch(CONFIG.sheet_url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...data, timestamp: new Date().toLocaleString('en-IN'), source: 'Contact Form' })
+  });
+}
+
+function sendContactWhatsApp(data) {
+  const msg = `*New Contact Message — AB Business Suite*\n\n👤 Name: ${data.name}\n📱 Contact: ${data.contact}\n💬 Message: ${data.msg}\n⏰ Time: ${new Date().toLocaleString('en-IN')}`;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ── DEMO REQUEST FORM ──
+function clearErr(id) {
+  const field = document.getElementById(id);
+  const err = document.getElementById('err-' + id.replace('f-',''));
+  if (field) field.style.borderColor = '';
+  if (err) err.textContent = '';
+}
+function showErr(id, msg) {
+  const field = document.getElementById('f-' + id);
+  const err = document.getElementById('err-' + id);
+  if (field) field.style.borderColor = '#c62828';
+  if (err) err.textContent = msg;
+}
+function submitDemo() {
+  let valid = true;
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const city    = document.getElementById('f-city').value.trim();
+  const product = document.getElementById('f-product').value;
+  if (!name)                          { showErr('name','Please enter your name or firm name'); valid = false; }
+  if (!phone || !/^\d{10}$/.test(phone)) { showErr('phone','Please enter a valid 10-digit mobile number'); valid = false; }
+  if (!city)                          { showErr('city','Please enter your city or district'); valid = false; }
+  if (!product)                       { showErr('product','Please select a product'); valid = false; }
+  if (!valid) return;
+
+  const data = { name, phone, city, product };
+  const btn = document.querySelector('.footer-submit');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+
+  Promise.allSettled([
+    sendToEmail(data),
+    sendToSheet(data),
+  ]).then(() => {
+    sendToWhatsApp(data); // opens WhatsApp last so popup isn't blocked
+    document.getElementById('cta-form').style.display = 'none';
+    document.getElementById('cta-success').style.display = 'block';
+    btn.textContent = 'Request a Free Demo →'; btn.disabled = false;
+  });
+}
+function resetForm() {
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-phone').value = '';
+  document.getElementById('f-city').value = '';
+  document.getElementById('f-product').value = '';
+  ['name','phone','city','product'].forEach(id => { showErr(id,''); });
+  document.getElementById('cta-form').style.display = 'flex';
+  document.getElementById('cta-success').style.display = 'none';
+}
+
+// ── CONTACT MODAL FORM ──
+function clearCErr(id) {
+  const field = document.getElementById(id);
+  const err = document.getElementById('cerr-' + id.replace('c-',''));
+  if (field) field.style.borderColor = 'var(--border)';
+  if (err) err.textContent = '';
+}
+function showCErr(id, msg) {
+  const field = document.getElementById('c-' + id);
+  const err = document.getElementById('cerr-' + id);
+  if (field) field.style.borderColor = '#c62828';
+  if (err) err.textContent = msg;
+}
+function submitContact() {
+  let valid = true;
+  const name    = document.getElementById('c-name').value.trim();
+  const contact = document.getElementById('c-contact').value.trim();
+  const msg     = document.getElementById('c-msg').value.trim();
+  if (!name)    { showCErr('name','Name is required'); valid = false; }
+  if (!contact) { showCErr('contact','Mobile or email is required'); valid = false; }
+  if (!msg)     { showCErr('msg','Please write a message'); valid = false; }
+  if (!valid) return;
+
+  const data = { name, contact, msg };
+  Promise.allSettled([sendContactToSheet(data)]).then(() => {
+    sendContactWhatsApp(data);
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+    setTimeout(closeModal, 2500);
+  });
+}
+
+// ── INDUSTRY CARD SELECTOR ──
+function pickIndustry(el, n) {
+  document.querySelectorAll('.ind-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  switchDemo(n);
+}
+
+// ── DEMO SWITCHER ──
+function switchDemo(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('demo-' + i).style.display = i === n ? 'block' : 'none';
+  });
+  document.querySelectorAll('.ptab').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.p) === n);
+  });
+  // toggle description strips
+  [1,2,3,4].forEach(i => {
+    const d = document.getElementById('desc-' + i);
+    if (d) d.style.display = i === n ? 'flex' : 'none';
+  });
+}
+
+// ── PRODUCT 1: SITE DATA ──
+const siteData = {
+  'site-a': { poles:312, cable:'47.2', tfmr:18, budget:'₹68L' },
+  'site-b': { poles:186, cable:'22.6', tfmr:9,  budget:'₹41L' },
+  'site-c': { poles:74,  cable:'9.1',  tfmr:4,  budget:'₹16L' },
+};
+function selectSite(el, key) {
+  document.querySelectorAll('.site-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  const d = siteData[key];
+  document.getElementById('kpi-poles').textContent = d.poles;
+  document.getElementById('kpi-cable').textContent = d.cable;
+  document.getElementById('kpi-tfmr').textContent = d.tfmr;
+  document.getElementById('kpi-budget').textContent = d.budget;
+}
+
+// ── PRODUCT 2: POS ──
+const posItems = [
+  { name:'Amul Milk 500ml', price:28, stock:120, cat:'Dairy', icon:'🥛' },
+  { name:'Amul Butter 100g', price:56, stock:80, cat:'Dairy', icon:'🧈' },
+  { name:'Curd 400g', price:38, stock:55, cat:'Dairy', icon:'🍶' },
+  { name:'Basmati Rice 1kg', price:89, stock:200, cat:'Grocery', icon:'🌾' },
+  { name:'Tur Dal 500g', price:65, stock:150, cat:'Grocery', icon:'🫘' },
+  { name:'Aashirvaad Atta 5kg', price:245, stock:60, cat:'Grocery', icon:'🍞' },
+  { name:'Frooti 200ml', price:15, stock:180, cat:'Beverage', icon:'🧃' },
+  { name:'Bisleri Water 1L', price:20, stock:96, cat:'Beverage', icon:'💧' },
+  { name:'Thumps Up 600ml', price:40, stock:72, cat:'Beverage', icon:'🥤' },
+  { name:'Lays Classic 26g', price:20, stock:140, cat:'Snacks', icon:'🍟' },
+  { name:'Parle-G 100g', price:10, stock:300, cat:'Snacks', icon:'🍪' },
+  { name:'Haldirams Bhujia', price:40, stock:85, cat:'Snacks', icon:'🥜' },
+];
+let cart = {};
+let activeCat = 'All';
+let payMethod = 'Cash';
+let todayTotal = 0;
+
+function renderPosGrid() {
+  const q = document.getElementById('pos-search').value.toLowerCase();
+  const grid = document.getElementById('pos-grid');
+  grid.innerHTML = '';
+  posItems.filter(i => (activeCat === 'All' || i.cat === activeCat) && i.name.toLowerCase().includes(q))
+    .forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'pos-item-card';
+      div.innerHTML = `<div class="pos-item-icon">${item.icon}</div><div class="pos-item-name">${item.name}</div><div class="pos-item-price">₹${item.price}</div><div class="pos-item-stock">${item.stock} in stock</div>`;
+      div.onclick = () => addToCart(item.name, item.price);
+      grid.appendChild(div);
+    });
+}
+function filterPos() { renderPosGrid(); }
+function setPosCat(el, cat) {
+  document.querySelectorAll('.pos-cat').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  activeCat = cat;
+  renderPosGrid();
+}
+function setPayMethod(el, m) {
+  document.querySelectorAll('.pay-method').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  payMethod = m;
+}
+function addToCart(name, price) {
+  if (!cart[name]) cart[name] = { price, qty: 0 };
+  cart[name].qty++;
+  renderCart();
+}
+function renderCart() {
+  const el = document.getElementById('cart-items');
+  el.innerHTML = '';
+  let sub = 0;
+  Object.entries(cart).forEach(([name, {price, qty}]) => {
+    if (qty <= 0) return;
+    sub += price * qty;
+    const d = document.createElement('div');
+    d.className = 'cart-item';
+    d.innerHTML = `<div class="cart-item-name">${name}</div><div class="cart-qty-ctrl"><button class="qty-btn" onclick="changeQty('${name}',-1)">−</button><span class="qty-num">${qty}</span><button class="qty-btn" onclick="changeQty('${name}',1)">+</button></div><div class="cart-price">₹${(price*qty).toFixed(2)}</div>`;
+    el.appendChild(d);
+  });
+  const gst = sub * 0.05;
+  const total = sub + gst;
+  document.getElementById('subtotal').textContent = '₹' + sub.toFixed(2);
+  document.getElementById('gst-amt').textContent = '₹' + gst.toFixed(2);
+  document.getElementById('total-amt').textContent = '₹' + total.toFixed(2);
+}
+function changeQty(name, delta) {
+  cart[name].qty = Math.max(0, cart[name].qty + delta);
+  if (cart[name].qty === 0) delete cart[name];
+  renderCart();
+}
+function clearCart() { cart = {}; renderCart(); }
+function processBill() {
+  let sub = Object.values(cart).reduce((s, {price,qty}) => s + price*qty, 0);
+  if (sub === 0) { toast('Add items to the bill first'); return; }
+  const total = sub * 1.05;
+  todayTotal += total;
+  document.getElementById('today-sales').textContent = 'Today: ₹' + Math.round(todayTotal);
+  clearCart();
+  toast(`Bill of ₹${total.toFixed(2)} processed via ${payMethod} ✓`);
+}
+
+// ── PRODUCT 3: COMPLIANCE ──
+const months = ['Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026'];
+let compMonthIdx = 4;
+const compViews = {
+  'gst-monthly': {
+    title:'GST Monthly Returns',
+    tasks: [
+      { name:'GSTR-1 (Outward Supplies)', client:'Ram Traders', due:'11', days:15, status:'filed' },
+      { name:'GSTR-3B (Summary Return)', client:'Shyam Enterprises', due:'20', days:24, status:'pending' },
+      { name:'GSTR-3B (Summary Return)', client:'Karan Industries', due:'20', days:24, status:'pending' },
+      { name:'GSTR-1 (Outward Supplies)', client:'Arjun Retail Pvt Ltd', due:'11', days:-5, status:'filed' },
+      { name:'GSTR-3B', client:'Arjun Retail Pvt Ltd', due:'20', days:24, status:'pending' },
+    ]
+  },
+  'gst-qrmp': {
+    title:'QRMP Scheme Clients',
+    tasks: [
+      { name:'IFF (Invoice Furnishing)', client:'Ram Traders', due:'13', days:17, status:'filed' },
+      { name:'PMT-06 Challan', client:'Ram Traders', due:'25', days:29, status:'pending' },
+    ]
+  },
+  'it-tds': {
+    title:'TDS Returns',
+    tasks: [
+      { name:'Form 26Q — Q4 FY 25-26', client:'Karan Industries', due:'31 May', days:-0, status:'overdue' },
+      { name:'Form 24Q — Q4 FY 25-26', client:'Karan Industries', due:'31 May', days:5, status:'pending' },
+      { name:'Form 26Q — Q4 FY 25-26', client:'Shyam Enterprises', due:'31 May', days:5, status:'pending' },
+    ]
+  },
+  'it-advance': {
+    title:'Advance Tax Installments',
+    tasks: [
+      { name:'1st Installment (15%)', client:'All Corporate Clients', due:'Jun 15', days:20, status:'pending' },
+      { name:'Challan 280 — FY 26-27', client:'Individual Clients', due:'Jun 15', days:20, status:'pending' },
+    ]
+  },
+  'it-itr': {
+    title:'ITR Filing',
+    tasks: [
+      { name:'ITR-3 FY 25-26', client:'Ram Traders (Proprietor)', due:'Jul 31', days:66, status:'pending' },
+      { name:'ITR-6 FY 25-26', client:'Karan Industries Pvt Ltd', due:'Oct 31', days:158, status:'pending' },
+    ]
+  },
+  'gst-annual': {
+    title:'Annual GST Returns',
+    tasks: [
+      { name:'GSTR-9 FY 25-26', client:'All GSTIN Clients', due:'Dec 31', days:219, status:'pending' },
+      { name:'GSTR-9C Reconciliation', client:'Karan Industries Pvt Ltd', due:'Dec 31', days:219, status:'pending' },
+    ]
+  }
+};
+let currentView = 'gst-monthly';
+function renderCompTasks() {
+  const d = compViews[currentView];
+  document.getElementById('comp-view-title').textContent = d.title;
+  document.getElementById('comp-month').textContent = months[compMonthIdx];
+  const list = document.getElementById('comp-tasks-list');
+  list.innerHTML = '';
+  d.tasks.forEach(t => {
+    const daysText = t.status === 'filed' ? 'Filed ✓'
+      : t.days < 0 ? `${Math.abs(t.days)}d overdue` 
+      : t.days <= 7 ? `${t.days}d left` : `${t.days}d away`;
+    const daysClass = t.status === 'filed' ? 'days-ok'
+      : t.days < 0 ? 'days-over' : t.days <= 7 ? 'days-soon' : 'days-ok';
+    const statusClass = t.status === 'filed' ? 'status-filed' : t.status === 'overdue' ? 'status-overdue' : 'status-pending';
+    const statusLabel = t.status === 'filed' ? 'Filed' : t.status === 'overdue' ? 'Overdue' : 'Pending';
+    const row = document.createElement('div');
+    row.className = 'comp-task';
+    row.innerHTML = `
+      <div><div class="task-name">${t.name}</div><div class="task-client">${t.client}</div></div>
+      <div class="task-due">${t.due} ${months[compMonthIdx].split(' ')[0]}</div>
+      <div class="task-days ${daysClass}">${daysText}</div>
+      <button class="task-status-btn ${statusClass}" onclick="toggleTaskStatus(this,'${t.name}')">${statusLabel}</button>
+    `;
+    list.appendChild(row);
+  });
+}
+function setCompView(el, view) {
+  document.querySelectorAll('.comp-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  currentView = view;
+  renderCompTasks();
+}
+function changeMonth(d) {
+  compMonthIdx = Math.max(0, Math.min(months.length-1, compMonthIdx + d));
+  renderCompTasks();
+}
+function toggleTaskStatus(btn, name) {
+  if (btn.classList.contains('status-pending')) {
+    btn.textContent = 'Filed'; btn.className = 'task-status-btn status-filed';
+    btn.parentElement.querySelector('.task-days').textContent = 'Filed ✓';
+    btn.parentElement.querySelector('.task-days').className = 'task-days days-ok';
+    toast(name + ' marked as filed ✓');
+  }
+}
+
+// ── PRODUCT 4: OFFICE ──
+function setOfficeTab(el, tab) {
+  document.querySelectorAll('.office-tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('office-board').style.display = tab === 'board' ? 'block' : 'none';
+  document.getElementById('office-staff').style.display = tab === 'staff' ? 'block' : 'none';
+}
+
+// ── INIT ──
+renderPosGrid();
+renderCompTasks();
+</script>
+</body>
+</html>
